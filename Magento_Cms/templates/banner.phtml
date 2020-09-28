@@ -1,0 +1,13 @@
+<div class="introduce">
+<div class="introduce-line introduce-top-line">
+		<?php for($i = 1;$i <= 2 ;$i++): ?>
+			<div>
+				<?php echo 
+				$block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('banner-top-line-'.$i.'')->toHtml();?>
+				<button>shop now <i class="fas fa-chevron-right"></i></button>
+			</div>
+		<?php endfor; ?>
+	</div>
+</div>
+
+

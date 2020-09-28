@@ -1,0 +1,39 @@
+<div class="outdoor-inspiration">
+<?php 
+    echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('slide-images')->toHtml();?>
+</div>
+<script>
+    require([
+        'jquery',
+        'slick'
+    ], function ($) {
+        $(document).ready(function () {
+            $(".regular").slick({
+                dots: false,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 5,
+                slidesToScroll: 1,
+                arrows: false,	
+                responsive: [
+				{
+					breakpoint: 769,
+					settings: {
+                        rows: 2,
+						slidesToShow: 2,
+						slidesToScroll: 1
+					}
+				},
+				{
+					breakpoint: 1025,
+					settings: {
+						slidesToShow: 4,
+						slidesToScroll: 2
+					}
+				}
+				]
+
+            });
+        });
+    });
+</script>

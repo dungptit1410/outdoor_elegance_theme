@@ -1,0 +1,69 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+?>
+<?php $_product = $block->getProduct(); ?>
+<?php $buttonTitle = __('Add to Cart'); ?>
+<?php if ($_product->isSaleable()) :?>
+<div class="box-tocart">
+    <div class="fieldset">
+        <?php if ($block->shouldRenderQuantity()) :?>
+        <div class="field qty">
+            <label class="label" for="qty"><span><?php /* @escapeNotVerified */ echo __('Quantity:') ?></span></label>
+            <div id="custom-qty" class="control" data-bind="scope: 'qty-counter'">
+                <!-- ko template: getTemplate() --><!-- /ko -->
+                <script type="text/x-magento-init">
+                    {
+                        "#custom-qty": {
+                            "Magento_Ui/js/core/app": {
+                                "components": {
+                                    "qty-counter": {
+                                        "component": "qty-counter",
+                                        "config": {
+                                            "qty": <?php echo $block->getProductDefaultQty() * 1 ?>,
+                                            "dataValidate": <?php echo json_encode($block->getQuantityValidators()) ?>
+                                        }
+                                    }
+                                 }
+                            }
+                        }
+                    }
+                </script>
+            </div>
+        </div>
+        <?php endif; ?>
+        <div class="actions">
+            <button type="submit"
+                    title="<?= $block->escapeHtmlAttr($buttonTitle) ?>"
+                    class="action primary tocart"
+                    id="product-addtocart-button" disabled>
+                <span><?= $block->escapeHtml($buttonTitle) ?></span>
+            </button>
+            <?= $block->getChildHtml('', true) ?>
+        </div>
+    </div>
+</div>
+<div class="info__item">
+        <strong>This product includes</strong>
+        <br>
+        <div>
+            <p>1 x Amalfi 130 Coffee Table: $395.00  </p>
+            <p>1 x Amalfi Right Two Seater: $1095.00 </p>
+            <p>1 x Amalfi Left Two Seater: $1095.00 </p>
+            <p>1 x Amalfi Corner Sofa: $695.00 </p>
+        </div>
+        <p> RRP: $3,280.00</p>
+</div>
+<?php endif; ?>
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "Magento_Catalog/js/validate-product": {}
+        }
+    }
+</script>
+

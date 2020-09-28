@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="columns.top">
+            <container name="category.view.container" htmlTag="div" htmlClass="category-view" after="-">
+                <block class="Magento\Catalog\Block\Category\View" name="category.image" template="Magento_Catalog::category/image.phtml"/>
+                <block class="Magento\Catalog\Block\Category\View" name="category.description" template="Magento_Catalog::category/description.phtml"/>
+                <block class="Magento\Catalog\Block\Category\View" name="category.cms" template="Magento_Catalog::category/cms.phtml"/>
+            </container>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <container name="category.view.banner" htmlTag="div" htmlClass="category-banner" before="-">
+                <block class="Magento\Cms\Block\Block" name="caregory.banner">
+                    <arguments>
+                            <argument name="block_id" xsi:type="string">category-cms-blog</argument>
+                    </arguments>
+                </block>
+            </container>
+            <container name="category.view.filter" htmlTag="div" htmlClass="category-filter" after="category.view.banner"/>
+            <block class="Magento\Cookie\Block\RequireCookie" name="require-cookie" template="Magento_Cookie::require_cookie.phtml">
+                <arguments>
+                    <argument name="triggers" xsi:type="array">
+                        <item name="compareProductLink" xsi:type="string">.action.tocompare</item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceBlock name="page.main.title" remove="true">
+          
+        </referenceBlock>
+        <move element="catalog.leftnav" destination="category.view.filter" before="-"/>
+        <!-- <move element="product_list_toolbar" destination="category.view.banner" after="-"/>  -->
+         <!-- <move element="category.products" destination="content" before="-"/>  -->    
+    </body>
+</page>

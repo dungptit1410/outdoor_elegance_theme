@@ -1,0 +1,24 @@
+& when (@media-common = true){
+    .minicart-wrapper{
+        .showcart{
+            &:before{
+                color:@color-red !important;;
+                margin-right: 20px !important;
+            }
+            .counter{
+                color: @color-red !important;;
+                background-color: @color-white !important;
+                &:after{
+                    content: ')';
+                    position: absolute;
+                }
+                &:before{
+                    content: 'Cart(';
+                    position: absolute;
+                    right: 13px;
+                    top: 3px;
+                }
+            }
+        }
+    }
+}

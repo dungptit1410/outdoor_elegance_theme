@@ -1,0 +1,11 @@
+<div class="banner">
+    <div class="banner__img">
+        <?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('banner-img')->toHtml();?>
+    </div>
+    <div class="banner__text">
+        <?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('banner-text')->toHtml();?>
+    </div>  
+    <div class="banner__button">
+        <button><?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('banner-button')->toHtml();?></button>
+    </div>  
+</div>

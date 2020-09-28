@@ -1,0 +1,87 @@
+@color-2222222: #222222;
+@color-22b725:#22b725;
+@color-ffffff:#ffffff;
+@color-3b3b3e:#3b3b3e;
+@color-f44336:#f44336;
+@color-dddddd: #dddddd;
+@color-d1d1d1: #d1d1d1;
+@color-23ad1c: #23ad1c;
+@color-red: red;
+//element
+@font-family-name__base__roboto: 'Roboto', sans-serif;
+@font-family-name__base__lora: 'Lora', serif;
+@font-family-name__base__maket: 'MARKETWEB';
+@font-family__base__roboto: @font-family-name__base__roboto, @font-family__sans-serif;
+@font-family__base__lora: @font-family-name__base__lora, @font-family__sans-serif;
+@font-family__base__maket: @font-family-name__base__maket, @font-family__sans-serif;
+h1 { font-size: 32px; font-family: @font-family__base__lora; }
+h2 { font-size: 24px; color: @color-2222222; font-family: @font-family__base__lora; }
+h3 { font-size: 18px; color: @color-2222222; font-family: @font-family__base__lora; }
+h4 { font-size: 15px; color: @color-2222222; font-family: @font-family__base__roboto; }
+p {  font-family: @font-family__base__roboto; }
+//minxi
+.mixin--title__h1 (@new_size) {
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+    text-align: center;
+    font-size: @new_size;
+    position: relative;
+
+    &:after {
+        content: '';
+        width: 100%;
+        border-bottom: solid 1px #dddddd;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        z-index: 1;
+    }
+    
+    h1 {
+        background-color: #ffffff;
+        width: auto;
+        display: inline-block;
+        z-index: 2;
+        padding: 0 20px 0 20px;
+        color: @color-2222222;
+        position: relative;
+        //font-family: calibri;
+        font-weight: 400;
+        margin: 0;
+        font-family: @font-family-name__base__lora;
+    }
+}
+.mixin--button{
+    background-color: @color-white;
+    border: 1px solid @color-2222222;
+    border-radius: 0px;
+    color:@color-2222222;
+}
+.minxi--a{
+    color: @color-2222222;
+    text-decoration: underline;
+}
+.minxi-flex{
+    display: flex;
+    justify-content: space-between;
+}
+.mixi-position(@top,@left){
+    top: @top;
+    left: @left;
+    transform: translate(-50%,-50%);
+}
+.mixi-position-block(@position,@width){
+    position: @position;
+    width: @width;
+}
+.mixi-icon-after(@content, @color,@font-size){
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: @content;
+    position: absolute;
+    color: @color;
+    font-size: @font-size;
+    font-family: 'icons-blank-theme';
+    transform: translateY(-50%);
+}

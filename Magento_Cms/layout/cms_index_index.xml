@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+    <referenceContainer name="page.wrapper">
+            <container name="home.page.main.banner.section" htmlTag="section" htmlClass="home-page-main-banner-section" before="main.content">
+                <block class="Magento\Framework\View\Element\Template" name="home-page-carosel-block" template="Magento_Cms::home-page-carosel.phtml"  before="-"/>
+            </container>
+            <container name="full-columns" htmlTag="div" htmlClass="full-columns" after="main.content" before="footer">
+                <container name="full-main" label="Custom Main Content Container" htmlTag="div" htmlClass="column main"/>
+            </container>
+    </referenceContainer>
+    <referenceContainer name="content">
+          <block class="Magento\Framework\View\Element\Template" name="banner-block" template="Magento_Cms::banner.phtml"  before="-" />
+          <!-- <container name="reason.buy" htmlTag="div" htmlClass="reason-buy"> -->
+                <block class="Magento\Framework\View\Element\Template" name="reason-buy-block" template="Magento_Cms::reason.phtml"  after="banner-block"></block>
+          <!-- </container> -->
+          <container name="banner.child" htmlTag="div" htmlClass="banner-child">
+                <block class="Magento\Framework\View\Element\Template" name="banner-child-block" template="Magento_Cms::banner-child.phtml"  after="reason-buy-block"></block>
+          </container>
+          <container name="two.titles.second" htmlTag="div" htmlClass="two-title-second">
+                <block class="Magento\Framework\View\Element\Template" name="two-title-second-block" template="Magento_Cms::two-title-second.phtml"  after="banner-child-block"></block>
+          </container>
+           <container name="h1.best.sellers.container" htmlTag="div" htmlClass="title__h1" >
+                <block class="Magento\Cms\Block\Block" name="h1-bestsellers-block" after="two-title-second-block">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">h1-best-sellers</argument>
+                    </arguments>
+                </block>
+            </container>
+            <container name="list.product" htmlTag="div" htmlClass="list-product">
+                <block class="Magento\Framework\View\Element\Template" name="list-product-block" template="Magento_Cms::list-product.phtml"  after="h1-bestsellers-block"></block>
+            </container>
+             <container name="h1.new.arrivals.container" htmlTag="div" htmlClass="title__h1" >
+                <block class="Magento\Cms\Block\Block" name="h1-newarrivals-block" after="list-product-block">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">h1-new-arrivals</argument>
+                    </arguments>
+                </block>
+            </container>
+             <container name="list.product.arrivals" htmlTag="div" htmlClass="list-product-arrivals">
+                <block class="Magento\Framework\View\Element\Template" name="list-product-arrivals-block" template="Magento_Cms::list-product.phtml"  after="h1-newarrivals-block"></block>
+            </container>
+            <container name="outdoor.container" htmlTag="div" htmlClass="outdoor">
+                <block class="Magento\Framework\View\Element\Template" name="outdoor-block" template="Magento_Cms::outdoor.phtml"  after="list-product-arrivals-block"></block>
+            </container>
+            <container name="h1.outdoor.funiture.container" htmlTag="div" htmlClass="title__h1" >
+                <block class="Magento\Cms\Block\Block" name="h1-outdoor-funiture-block" after="outdoor-block">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">h1-outdoor-funiture</argument>
+                    </arguments>
+                </block>
+            </container>
+            <container name="outdoor.funiture.container" htmlTag="div" htmlClass="outdoor-funiture">
+                <block class="Magento\Framework\View\Element\Template" name="outdoor-funiture-block" template="Magento_Cms::outdoor-funiture.phtml"  after="h1-outdoor-funiture-block"></block>
+            </container>
+            <container name="h1-burninglogtestimonials-container" htmlTag="div" htmlClass="title__h1">
+                <block class="Magento\Cms\Block\Block" name="H1-Burninglogtestimonials" before="burninglog_main">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">h1-burninglogtestimonials</argument>
+                    </arguments>
+                </block>
+            </container>
+            <container name="burninglog_main" label="Blog Content Container" htmlTag="div" htmlClass="burninglog-container-block">
+                <block class="Magento\Framework\View\Element\Template" name="aht.content.burninglog" template="Magento_Cms::burninglog_main.phtml" />
+            </container>
+            <container name="pagebottom--container__button" htmlTag="div" htmlClass="page--bottom__button" after="burninglog_main">
+                <block class="Magento\Cms\Block\Block" name="Page-Bottom-Button">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">page-bottom-button</argument>
+                    </arguments>
+                </block>
+            </container>
+
+    </referenceContainer> 
+    </body>
+</page>

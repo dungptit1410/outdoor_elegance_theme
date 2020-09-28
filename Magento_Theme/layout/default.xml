@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<body>
+    <referenceContainer name="header.container">
+                <referenceContainer name="header.panel.wrapper" htmlClass="panel wrapper">
+                    <block class="Magento\Framework\View\Element\Template" name="header-top" template="Magento_Theme::header_top.phtml" before="-" />
+                    <referenceContainer name="header.panel" >
+                        <referenceBlock name="store_language" remove="true"></referenceBlock> 
+                        <referenceBlock name="top.links" remove="false" />
+                         <referenceBlock name="top.links">
+                                <referenceBlock name="header" remove="true">   
+                                </referenceBlock>
+                                <referenceBlock name="my-account-link" remove="true"/>
+                                <referenceBlock name="wish-list-link" remove="true" />
+                                <block class="Magento\Framework\View\Element\Template" name="header.top.or" before="register-link" template="Magento_Theme::display_or.phtml"/>              
+                                <referenceBlock class="Magento\Customer\Block\Account\RegisterLink" name="register-link">
+                                    <arguments>
+                                        <argument name="label" xsi:type="string" translate="true">Register</argument>
+                                    </arguments>
+                                </referenceBlock>
+                        </referenceBlock>
+                        
+                    </referenceContainer>
+                </referenceContainer>
+                <container name="header.panel.wrapper.black" htmlTag="div" htmlClass="header-panel-wrapper-black" before="-"/>
+                <block class="Magento\Framework\View\Element\Template" name="dropdown.menu.carosel" after="-" template="Magento_Theme::dropdown_carosel.phtml"/>    
+    </referenceContainer>
+    <move element="header.panel.wrapper" destination="header.panel.wrapper.black" before="-"/>
+	<!-- <move element="authorization-link" destination="top.links" after="header-top-links"/> -->
+    <referenceContainer name="footer-container">
+       <block class="Magento\Framework\View\Element\Template" name="showroom"
+        template="Magento_Theme::showroom.phtml"  before="-" />
+        <block class="Magento\Theme\Block\Html\Footer" name="Footer_Top_Up" after="showroom" template="Magento_Theme::footer_topup.phtml"/>
+		<block class="Magento\Theme\Block\Html\Footer" name="Footer_Top_Dow" after="Footer_Top_Up" template="footer_topdow.phtml"/>
+        <container name="footer.list.link" htmlTag="div" htmlClass="footer-list-link" after="Footer_Top_Dow">
+            <container name="contacts_footer_container" label="Contact Footer Container" htmlTag="div" htmlClass="links" before="-"/>
+            <container name="services_footer_links_container" label="Services Footer Links" htmlTag="div" htmlClass="links" after="category-link-block" />
+            <container name="policies_footer_links_container" label="Policies Footer Links" htmlTag="div" htmlClass="links" after="footer_links_services" />
+        </container>
+        <!-- CONTACT -->
+        <referenceContainer name="contacts_footer_container">
+            <!-- <block class="Magento\Cms\Block\Block" name="category-link-block" before="-">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">footer-category-link</argument>
+                        </arguments>
+            </block> -->
+            <block class="Magento\Framework\View\Element\Html\Links" name="footer_links_contact">
+                <arguments>
+                    <argument name="css_class" xsi:type="string">footer__links</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Html\Links" name="footer_links_contact_mobile">
+                <arguments>
+                    <argument name="css_class" xsi:type="string">footer--links__mobile</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <!-- Contact destop -->
+        <referenceBlock name="footer_links_contact">
+            <block class="Magento\Framework\View\Element\Text\TextList\Item" name="footer.contact.line.0">
+                <arguments>
+                 <!-- Khai bao ten class -->
+                    <argument name="li_params" xsi:type="array">
+                        <item name="class" xsi:type="string">contact-item</item> 
+                    </argument>
+                 <!-- Khai bao ten hien thi  -->
+                    <argument name="inner_text" xsi:type="string">Categories</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="category-link-block" after="footer.contact.line.0">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">footer-category-link</argument>
+                        </arguments>
+            </block>
+        </referenceBlock>
+        <!-- contact mobile -->
+         <referenceBlock name="footer_links_contact_mobile">
+            <block class="Magento\Theme\Block\Html\Footer" name="Footer_Link1" template="Magento_Theme::footer-link1.phtml"/>
+        </referenceBlock>
+        <!-- END CONTACT -->
+
+         <!-- SERVICES -->
+         <referenceContainer name="services_footer_links_container">
+            <!-- title -->
+            <container name="footer_services_title_container" htmlTag="div" htmlClass="footer-title">
+                <block class="Magento\Framework\View\Element\Text" name="footer.services.title">
+                    <arguments>
+                        <argument name="text" xsi:type="string">Why Outdoor Elegance?</argument>
+                    </arguments>
+                </block>
+            </container>
+            <!-- end -->
+            <block class="Magento\Framework\View\Element\Html\Links" name="footer_links_services">
+                <arguments>
+                    <argument name="css_class" xsi:type="string">footer__links</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Html\Links" name="footer_links_services_mobile" after="footer_links_services">
+                <arguments>
+                    <argument name="css_class" xsi:type="string">footer--links__mobile</argument>
+                </arguments>
+            </block>
+         </referenceContainer>
+            <referenceBlock name="footer_links_services">
+                <block class="Magento\Cms\Block\Block" name="Footer-Link3-Desk">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">footer-link3</argument>
+                    </arguments>
+                </block>
+            </referenceBlock>
+            <referenceBlock name="footer_links_services_mobile">
+                <block class="Magento\Theme\Block\Html\Footer" name="Footer_Link3" template="Magento_Theme::footer-link3.phtml"/>
+            </referenceBlock>
+        <!-- End Services -->
+
+        <!-- Policies -->
+       <referenceContainer name="policies_footer_links_container">
+            <!-- title -->
+            <container name="footer_policies_title_container" htmlTag="div" htmlClass="footer-title">
+                <block class="Magento\Framework\View\Element\Text" name="footer.policies.title">
+                    <arguments>
+                        <argument name="text" xsi:type="string">Our Policies</argument>
+                    </arguments>
+                </block>
+            </container>
+            <!-- end -->
+            <block class="Magento\Framework\View\Element\Html\Links" name="footer_links_policies">
+                <arguments>
+                    <argument name="css_class" xsi:type="string">footer__links</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Html\Links" name="footer_links_policies_mobile">
+                <arguments>
+                    <argument name="css_class" xsi:type="string">footer--links__mobile</argument>
+                </arguments>
+            </block>
+         </referenceContainer>
+         <referenceBlock name="footer_links_policies">
+            <block class="Magento\Cms\Block\Block" name="Footer-Link2-Desk">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer-link2</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceBlock name="footer_links_policies_mobile">
+                <block class="Magento\Theme\Block\Html\Footer" name="Footer_Link2" template="Magento_Theme::footer-link2.phtml"/>
+        </referenceBlock>
+        <!-- End Policies -->
+
+     </referenceContainer>
+     <referenceContainer name="footer">
+         <referenceBlock name="store_switcher" remove="true"/>
+         <referenceBlock name="report.bugs" remove="true"/>
+         <referenceBlock name="footer_links" remove="true"/>
+          <referenceBlock name="copyright" remove="true"/>
+          <block class="Magento\Theme\Block\Html\Footer" name="Footer_Bottom" after="footer" template="Magento_Theme::footer_bottom.phtml"/>
+     </referenceContainer>
+
+</body>
+</page> 

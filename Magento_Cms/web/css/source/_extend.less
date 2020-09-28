@@ -1,0 +1,419 @@
+& when (@media-common = true) {
+    .banner{
+        // width: 100%;
+        // position: relative;
+        .mixi-position-block(relative,100%);
+        text-align: center;
+        &__img{
+            .mixi-position-block(relative,100%);
+            img{
+                width: 100%;
+            }
+        }
+        &__text{
+            .mixi-position(calc(50% - 10px),50%);
+            .mixi-position-block(absolute,100%);
+            z-index: 2;
+            p{
+                color: @color-white;
+                &:first-child{
+                    font-size: 90px;
+                    font-weight: bold;
+                }
+                &:nth-child(2){
+                    font-size: 32px;
+                    font-family: @font-family-name__base__lora;
+                    text-align: center;
+                    font-weight: 400;
+                    filter: drop-shadow(0 0 7.5px rgba(0,0,0,0.5));
+                }
+            }
+        }
+        &__button{
+            position: absolute;
+            z-index: 2;
+            .mixi-position(calc(60%),50%);
+            button{
+                width: 260px;
+                height: 50px;
+                background-color: #2d2d2f;
+                border: 2px solid #ffffff;
+                position: relative;
+                font-family: @font-family-name__base__roboto;
+                p{
+                    margin-bottom: 0px;
+                    color:@color-white;
+                    text-transform: uppercase;
+                }
+                &:after{
+                    .mixi-icon-after('\e608', @color-white,30px);
+                    // -webkit-font-smoothing: antialiased;
+                    // -moz-osx-font-smoothing: grayscale;
+                    // content: '\e608';
+                    // position: absolute;
+                    // color: @color-white;
+                    top: 50%;
+                    right: 10px;
+                    // font-size: 30px;
+                    // font-family: 'icons-blank-theme';
+                    // transform: translateY(-50%);
+                }
+            }
+        }
+    }
+
+    .introduce{
+        //margin-top: -470px;
+        &-line{
+            .minxi-flex;
+            div {
+                width: 49%;
+            }
+        }
+        &-top-line{
+            &>div{
+                position: relative;
+                img{
+                    width: 100%;
+                }
+                p:nth-child(2){
+                    position: absolute;
+                    .mixi-position(calc(50% - 10px),50%);
+                    font-size: 42px;
+                    line-height: 42px;
+                    color: @color-white;
+                    font-weight: 700;
+                    font-family: @font-family__base__lora;
+                    text-align: center;
+                    white-space: nowrap;
+                   
+                }
+                button{
+                    width: 152px;
+                    height: 50px;
+                    background-color: #2d2d2f;
+                    border: 2px solid @color-white;
+                    color: @color-white;
+                    position: absolute;
+                    .mixi-position(calc(50% + 10px),50%);
+                    text-transform: uppercase;
+                    font-size: 15px;
+                    line-height: 20px;
+                    font-family: @font-family-name__base__roboto;
+                    i{
+                        padding-left: 7px;
+                    }
+                }
+            }
+        }
+    }
+
+    .reason-buy{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: stretch;
+        align-content: center;
+        background-color: @color-black;
+        
+        p{
+            margin-bottom: 0;
+            padding: 12px 0px;
+            position: relative;
+            text-align: center;
+            a{
+                color:@color-white;
+                text-decoration: none;
+                padding-top:15px;
+                padding-bottom: 15px;
+                text-transform: uppercase;
+                font-family: @font-family-name__base__roboto;
+                font-weight: 400;
+            }
+            &:after{
+                .mixi-icon-after('\e608', @color-white,32px);
+                //color: @color-white;
+                top: 50%;
+                //right: -32px;
+                line-height: 14px;
+            }
+            
+        }
+        
+    }
+    .banner-child{
+        margin-top: 20px;
+        .minxi-flex;
+        .item {
+            width: 33%;
+            background-color: #eeeeee;
+            height: 550px;
+            text-align: center;
+            img {
+                width: 100%;
+            }
+            p{
+                &:nth-child(2){
+                    font-family: @font-family-name__base__lora;
+                    font-weight: 400;
+                    //text-align: center;
+                    font-size: 18px;
+                    text-align: center;    
+                }
+                &:nth-child(3){
+                    //text-align: center;
+                    width: 80%;
+                    margin: auto;
+                    text-align: center; 
+                    font-family: @font-family-name__base__roboto;
+                    font-weight: 400;   
+                }
+            }
+            button{
+                margin-top: 20px;
+                text-transform: uppercase;
+                font-size: 12px;
+                border: 1px solid @color-black;
+                border-radius: 0px;
+                padding: 7px 12px;
+                i{
+                    color: @color-black;
+                    font-size: 10px;
+                    padding-left: 7px;
+                }
+            }
+        }
+    }
+    .two-title-second {
+        .minxi-flex;
+        margin-top: 20px;
+        .item-left {
+            // position: relative;
+            // width: 49%;
+            .mixi-position-block(relative,49%);
+            //height: 439px;
+            p{
+                &:first-child{
+                    z-index: 1;
+                    // position: absolute;
+                    // width: 100%;
+                    .mixi-position-block(absolute,100%);
+                    height: 100%;
+                    top: 0;
+                    right: 0;
+                }
+                &:nth-child(2){
+                    z-index: 2;
+                    position: absolute;
+                    .mixi-position(calc(40%),50%);
+                    // top: calc(40%);
+                    // left: 50%;
+                    // transform: translate(-50%, -50%);
+                    font-size: 42px;
+                    text-transform: uppercase;
+                    color: @color-white;
+                    font-weight: bold;
+                    font-family: @font-family-name__base__lora;
+                } 
+            }
+            button {
+                position: absolute;
+                z-index: 2;
+                .mixi-position(calc(60%),50%);
+                // top: calc(60%);
+                // left: 50%;
+                // transform: translate(-50%, -50%);
+                padding: 12px 20px;
+                color: @color-white;
+                background-color: black;
+                border: 1px solid @color-white;
+                text-transform: uppercase;
+                font-family: @font-family-name__base__roboto;
+                font-weight: 400;
+                i{
+                    color: #fff;
+                    margin-left: 5px;
+                    font-size: 10px;
+                }
+            }
+        }
+        .item-right {
+            width: 49%;
+        }
+        
+    }
+    .outdoor-inspiration{
+        text-align: center;
+        .title__h1 {
+            margin: 0;
+        }
+        p{
+            text-align: center;
+            font-size: 12px;
+        }
+        .silide--image__button {
+            margin-top: 20px;
+            button{
+                background-color: @color-white;
+                border: 1px solid @color-black;
+                border-radius: 0px;
+            }
+        }
+    }
+    .outdoor-funiture{
+        .lifestyle-blog {
+            .minxi-flex;
+            flex-wrap: wrap;
+            &__column{
+                flex-grow: 1;
+                
+                width: 31%;
+                margin-right: 10px;
+                margin-bottom: 10px;
+                
+                a {
+                    .minxi--a;
+                }
+                h3 {
+                    font-size: 19px;
+                    font-weight: 600;
+                }
+            }
+        }
+        
+    }
+    .burninglogtestimonials {
+        .minxi-flex;
+        flex-wrap: wrap;
+        &__column {
+            /* flex-grow: 1; */
+            width: 49%;
+            border: 1px solid gray;
+            margin-bottom: 20px;
+            padding: 20px 30px;
+            p{
+                font-size: 13px;
+            }
+            a{
+                .minxi--a;
+            }
+        }
+    }
+    .page--bottom__button {
+        text-align: center;
+        button{
+            .mixin--button;
+        }
+    }
+}
+
+//mobile
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s){
+    .banner{
+        &__text{
+            p{
+              
+                &:first-child{
+                    font-size: 40px !important;
+                   
+                }
+                &:nth-child(2){
+                    font-size: 20px !important;
+                }
+            } 
+        }
+    }
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m)
+{
+    .banner{
+        &__button{
+            top: calc(70%) !important;
+        }
+    }
+    .introduce{
+        //margin-top: -420px !important;
+        &-line{
+            display: block !important;
+            div {
+                width: 100% !important;
+            }
+        }
+    }
+    .banner-child{
+        display: block !important;
+            .item{
+                width: 100% !important;
+                height: 100% !important;
+                padding-bottom: 35px !important;
+                margin-bottom: 20px !important;
+                img {
+                    width: 100% !important;
+                }
+            }
+        
+    }
+    .two-title-second{
+        display: block !important;
+        img{
+            width: 100% !important;
+        }
+        .item-left{
+            width: 100% !important;
+            p{
+                &:first-child{
+                    position: relative !important;
+                }
+            }
+        }
+        .item-right{
+            width: 100% !important;
+        }
+    }
+    .outdoor-funiture {
+        .lifestyle-blog{
+            display: block !important;
+            &__column{
+                width: 100% !important;
+                margin-right: 0 !important;
+                img {
+                    width: 100% !important;
+                }
+            }
+        }
+    }
+    .burninglogtestimonials{
+        display: block !important;
+        &__column{
+            width: 100% !important;
+        }
+    }
+}
+/* .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m){
+    .banner{
+        &__text{
+            p{
+                color: black;
+            }
+        }
+    }
+}
+.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__m){
+    .banner{
+        &__text{
+            p{
+                color: black;
+            }
+        }
+    }
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    .banner{
+        &__text{
+            p{
+                color: red;
+            }
+        }
+    }
+} */
