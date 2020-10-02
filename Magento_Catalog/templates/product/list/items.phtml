@@ -177,13 +177,13 @@ $_item = null;
                 </div>
             </div>
             <div class="block-content content" aria-labelledby="block-<?= $block->escapeHtmlAttr($class) ?>-heading">
-                <?php if ($type == 'related' && $canItemsAddToCart):?>
+                <!-- <?php if ($type == 'related' && $canItemsAddToCart):?>
                     <div class="block-actions">
                         <?= $block->escapeHtml(__('Check items to add to the cart or')) ?>
                         <button type="button" class="action select"
                                 data-role="select-all"><span><?= $block->escapeHtml(__('select all')) ?></span></button>
                     </div>
-                <?php endif; ?>
+                <?php endif; ?> -->
                 <div class="products wrapper grid products-grid products-<?= $block->escapeHtmlAttr($type) ?>">
                     <ol class="regular products list items product-items">
                         <?php foreach ($items as $_item):?>
@@ -222,19 +222,7 @@ $_item = null;
                                     <?php if ($canItemsAddToCart && !$_item->isComposite() && $_item->isSaleable()
                                         && $type == 'related'):?>
                                         <?php if (!$_item->getRequiredOptions()):?>
-                                            <div class="field choice related"><input
-                                                    type="checkbox"
-                                                    class="checkbox related"
-                                                    id="related-checkbox<?= $block->escapeHtmlAttr($_item->getId()) ?>"
-                                                    name="related_products[]"
-                                                    value="<?= $block->escapeHtmlAttr($_item->getId()) ?>" />
-                                                <label
-                                                    class="label"
-                                                    for="related-checkbox<?= $block->escapeHtmlAttr(
-                                                        $_item->getId()
-                                                    ) ?>"><span><?= $block->escapeHtml(__('Add to Cart')) ?></span>
-                                                </label>
-                                            </div>
+                                            
                                         <?php endif; ?>
                                     <?php endif; ?>
 
@@ -350,7 +338,7 @@ $_item = null;
                         arrows: false,
                         centerMode: true,
                         centerPadding: '40px',
-                        slidesToShow: 3
+                        slidesToShow: 2
                         }
                     },
                     {

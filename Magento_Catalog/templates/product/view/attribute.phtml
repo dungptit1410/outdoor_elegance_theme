@@ -16,6 +16,7 @@
 $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 $_product = $block->getProduct();
 
+
 if (!$_product instanceof \Magento\Catalog\Model\Product) {
     return;
 }
@@ -50,7 +51,21 @@ if ($_attributeType && $_attributeType == 'text') {
     <?php if ($renderLabel) :?>
         <strong class="type"><?= $block->escapeHtml($_attributeLabel) ?></strong>
     <?php endif; ?>
-    <div class="value" <?= /* @noEscape */ $_attributeAddAttribute ?>><?= /* @noEscape */ $_attributeValue ?></div>
+    <?php if($_className == 'include'){?>
+        
+        <div data-mage-init="{&quot;accordion&quot;:{&quot;openedState&quot;: &quot;active&quot;, &quot;collapsible&quot;: true, &quot;active&quot;: false, &quot;multipleCollapsible&quot;: &quot;true&quot;}}">
+        <div data-role="collapsible">
+            <div class="title-include" data-role="trigger"><strong>This product includes</strong></div>
+        </div>
+        <div data-role="content">
+            <div class="value" <?= /* @noEscape */ $_attributeAddAttribute ?>><?= /* @noEscape */ $_attributeValue ?></div>
+        </div>
+        </div>
+    <?php }else{ ?>
+        <div class="value" <?= /* @noEscape */ $_attributeAddAttribute ?>><?= /* @noEscape */ $_attributeValue ?></div>
+    <?php } ?>
+
+    <?php if($_className == 'description'): ?>
     <?php $questionData = [1, 2, 3]; ?>
     <div class="product--blogs">
         <?php foreach ($questionData as $value): ?>
@@ -62,5 +77,13 @@ if ($_attributeType && $_attributeType == 'text') {
             </div>
         <?php endforeach; ?>
     </div>
+    <?php endif; ?>
 </div>
 <?php endif; ?>
+<script>
+    require([
+        'jquery',
+        'accordion'], function ($) {
+        $("#element").accordion();
+    });
+</script>

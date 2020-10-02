@@ -14,12 +14,48 @@
         <referenceContainer name="product.info.stock.sku" remove="true"/>
         <referenceContainer name="product.info.social" remove="true"/> 
         <referenceContainer name="product.info.main">
+        <container name="product.info.include.rrp" htmlTag="div" htmlClass="product-info-include-rrp">
+             <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.include" template="Magento_Catalog::product/view/attribute.phtml" group="detailed_info" after="product.info.overview">
+                    <arguments>
+                        <argument name="at_call" xsi:type="string">getInclude</argument>
+                        <argument name="at_code" xsi:type="string">include</argument>
+                        <argument name="css_class" xsi:type="string">include</argument>
+                        <argument name="at_label" xsi:type="string">none</argument>
+                        <argument name="add_attribute" xsi:type="string">itemprop="include"</argument>
+                    </arguments>
+            </block>
+        </container>
             <block class="Magento\Framework\View\Element\Template" name="myPromoo" template="Magento_Catalog::blog/_product_buttongroup.phtml" after="-"/>
         </referenceContainer>
-        <referenceBlock name="product.info.description">
-            <arguments>
-                <argument name="title" translate="true" xsi:type="string">Description</argument>
-            </arguments>
+        <referenceBlock name="product.info.details" remove="false">
+            <referenceBlock name="product.info.description" >
+                <arguments>
+                    <argument name="title" translate="true" xsi:type="string">Description</argument>
+                </arguments>
+            </referenceBlock>
+            <referenceBlock name="product.attributes" >
+                <arguments>
+                    <argument name="title" translate="true" xsi:type="string">Specifications</argument>
+                </arguments>
+            </referenceBlock>
+            <referenceBlock name="reviews.tab" remove="false">
+                <arguments>
+                    <argument name="title" translate="true" xsi:type="string">FAQ</argument>
+                </arguments>
+            </referenceBlock>
+            <block class="Magento\Catalog\Block\Product\View\Attributes" name="product.attributes1" as="additional1" template="Magento_Catalog::product/view/attributes.phtml" group="detailed_info">
+                    <arguments>
+                        <argument translate="true" name="title" xsi:type="string">Gallery</argument>
+                        <argument name="sort_order" xsi:type="string">40</argument>
+                    </arguments>
+            </block>
+            <block class="Magento\Catalog\Block\Product\View\Attributes" name="product.attributes2" as="additional2" template="Magento_Catalog::product/view/attributes.phtml" group="detailed_info">
+                    <arguments>
+                        <argument translate="true" name="title" xsi:type="string">Shipping &amp; Delivery</argument>
+                        <argument name="sort_order" xsi:type="string">50</argument>
+                    </arguments>
+            </block>
         </referenceBlock>
+       
     </body>
 </page>

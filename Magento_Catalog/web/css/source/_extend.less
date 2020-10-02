@@ -5,6 +5,13 @@
         h1.page-title {
             font-size: 25px;
         }
+        .product-options-wrapper{
+            .swatch-attribute-label{
+                &:before{
+                    content: 'Choose your ';
+                }
+            }
+        }
         .product-info-price {
             padding-bottom: 30px;
             border-bottom: 1px solid @color-dddddd;
@@ -19,14 +26,40 @@
                 color: gray;
             }
         }
+        a{
+            color:@color-2222222;
+            text-decoration: underline;
+        }
+        .product-info-include-rrp {
+            padding-top: 0px 10px;
+            padding: 10px 0px;
+            border-bottom: 1px solid @color-dddddd;
+            border-top: 1px solid @color-dddddd;
+
+            .title-include {
+                position: relative;
+                &:after{
+                    content: '+';
+                    position: absolute;
+                    top: 50%;
+                    right: 7px;
+                    font-size: 23px;
+                    transform: translateY(-50%);  
+                    color: @color-dddddd;      
+                }
+            }
+            .allow.active{
+                .title-include:after{
+                    content: '-';
+                }
+            }
+        }
         .productproductgroup{
+            margin-top: 20px;
             &__top{
                 display: flex;
                 justify-content: space-evenly;
                 text-align: center;
-                a{
-                    color:@color-2222222;
-                }
             }
             &__bottom{
                 position: relative;
@@ -89,6 +122,9 @@
                     display: none;
                 }
             }
+        }
+        .product-item-name a {
+            font-weight: 700;
         }
 
         button.action.tocart.primary {
@@ -190,6 +226,15 @@
     }
 
 
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    .product--blogs__column {
+        text-align: center;
+        display: block !important;
+        &>div{
+            width: 100% !important;
+        }
+    }
 }
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {

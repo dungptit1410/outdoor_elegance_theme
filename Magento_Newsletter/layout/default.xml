@@ -11,6 +11,6 @@
             <referenceBlock name="form.subscribe" remove="true" />
         </referenceContainer> -->
             <move element="form.subscribe" destination="footer.list.link"
-    after="category-link-block" />
+    before="-" />
     </body>
 </page>
