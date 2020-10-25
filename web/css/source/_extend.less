@@ -4,3 +4,51 @@
 @import "_breadcrumbs_extend.less";
 @import "_pages_extend.less";
 @import "_buttons_extend.less";
+.slick-prev, .slick-next {
+    position: absolute;
+    display: block;
+    height: 35px;
+    width: 33px;
+    line-height: 0px;
+    font-size: 0px;
+    cursor: pointer;
+    background-color: white;
+    /* background: #0f0e0e00; */
+    color: #914d4d00;
+    border: 1px solid black;
+    top: 50%;
+    border-radius: 50%;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    padding: 0;
+    /* border: none; */
+    outline: none;
+}
+.slick-prev {
+    left: 15px;
+    z-index: 50;
+    &:before{
+        content: '\e617';
+        font-family: 'icons-blank-theme';
+        font-size: 20px;
+        line-height: 1;
+        color: #2c1616;
+        opacity: 0.75;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+.slick-next {
+    right: 15px;
+    &:before{
+        content: '\e608';
+        font-family: 'icons-blank-theme';
+        font-size: 20px;
+        line-height: 1;
+        color: #2c1616;
+        opacity: 0.75;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}

@@ -27,7 +27,7 @@
         </container>
             <block class="Magento\Framework\View\Element\Template" name="myPromoo" template="Magento_Catalog::blog/_product_buttongroup.phtml" after="-"/>
         </referenceContainer>
-        <referenceBlock name="product.info.details" remove="false">
+        <referenceBlock name="product.info.details" >
             <referenceBlock name="product.info.description" >
                 <arguments>
                     <argument name="title" translate="true" xsi:type="string">Description</argument>
@@ -38,7 +38,7 @@
                     <argument name="title" translate="true" xsi:type="string">Specifications</argument>
                 </arguments>
             </referenceBlock>
-            <referenceBlock name="reviews.tab" remove="false">
+            <referenceBlock name="reviews.tab">
                 <arguments>
                     <argument name="title" translate="true" xsi:type="string">FAQ</argument>
                 </arguments>
